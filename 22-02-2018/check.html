@@ -1,0 +1,65 @@
+<script>
+    /* the below mentioned function will determine the datatypes such as 'Array','Array of objects','number','string',etc*/
+    function checkDataType(a){
+        if(typeof(a)=="undefined")              /*U:Undefined*/
+        {
+            return 'U';
+        }  
+        else if(a===null)
+        {
+            return 'Null';
+        } 
+    
+        else if(a.constructor == Array)
+        {   
+            if (a[0].constructor == Object)
+            {
+                b=a.map((x)=>{
+                console.log(x);
+                });
+                return "AO";                    /*AO:Array of objects*/
+            }
+            else {
+                b=a.map((x)=>{console.log(x);});
+                return 'A';                     /*A: Array*/
+            }
+        }   
+        else if(a.constructor===Object)
+        {
+            return "O";                         /*O:Object*/
+        }
+    
+        else if(a.constructor===String)
+        {
+            return "S";                         /* S:String*/
+        }
+        else if(a.constructor===Number)
+        {
+            return "N";                         /*N:Number*/
+        }
+        else if(a.constructor===Boolean)
+        {
+            return "B";                         /*B:Boolean*/
+        }
+    }
+    
+    data=[1,2,3,4];
+    var result=checkDataType(data);
+    if(result=='A')
+    console.log("Array");
+    if(result=='O')
+    console.log("Object");
+    if(result=='S')
+    console.log("String");
+    if(result=='N')
+    console.log("Number");
+    if(result=='B')
+    console.log("Boolean");
+    if(result=='Null')
+    console.log("Null");
+    if(result=='U')
+    console.log("Undefined");
+    if(result=='AO')
+    console.log("Array of object");
+</script>
+        
